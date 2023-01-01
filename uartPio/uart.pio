@@ -1,0 +1,44 @@
+
+
+
+.program uart_tx
+.side_set 1 opt
+public tx:
+.wrap_target
+    pull               side 1  [7]   ; pull 32-bit data from fifo
+    set     x       7  side 0  [7]   ; set counter
+
+loop:
+    out     pins    1       ; output data from OSR
+    jmp     x--     loop [6]   ; loop
+
+.wrap
+
+
+
+.program uart_rx
+public rx:
+.wrap_target
+start:
+    wait    0    pin    0   ; wait for start bit
+    set     x       7    [10]   ; set counter
+
+loop:
+    in     pins    1        ; put data to ISR
+    jmp     x--     loop  [6]  ; loop
+
+    jmp pin can_finish      ;look for stop bit(eğer gerçekleşmez ise datayı gönderme)
+
+    ;belki interrupt flag eklenebilir
+    ;irq set 5
+    ;ve işlemci onu clear edene  kadar program bekletilebilir
+    ;wait irq 5
+    wait 1 pin 0            ; frame error or break happened wait for things to get normal
+    mov ISR null            ; clear ISR
+    jmp start
+
+
+can_finish:
+    push
+
+.wrap
