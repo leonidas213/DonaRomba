@@ -8,10 +8,10 @@
 
 MPU6050 mpu;
 
-//#define OUTPUT_READABLE_YAWPITCHROLL
+#define OUTPUT_READABLE_YAWPITCHROLL
 //#define OUTPUT_READABLE_REALACCEL
 //#define OUTPUT_READABLE_WORLDACCEL
-#define OUTPUT_READABLE_CUSTOM
+//#define OUTPUT_READABLE_CUSTOM
 
 
 bool dmpReady = false;  // set true if DMP init was successful
@@ -75,11 +75,11 @@ void  waitForUsbConnect() {
 int main() {
     stdio_init_all();
     // This example will use I2C0 on the default SDA and SCL (pins 6, 7 on a Pico)
-    i2c_init(i2c_default, 400 * 1000);
-    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
-    gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
-    gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
+    i2c_init(i2c1, 400 * 1000);
+    gpio_set_function(2, GPIO_FUNC_I2C);
+    gpio_set_function(3, GPIO_FUNC_I2C);
+    gpio_pull_up(3);
+    gpio_pull_up(2);
     // Make the I2C pins available to picotool
     
     // setup blink led

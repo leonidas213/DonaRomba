@@ -296,9 +296,9 @@ uint8_t MPU6050::dmpInitialize() { // Lets get it over with fast Write everythin
 	uint16_t ival;
   // Reset procedure per instructions in the "MPU-6000/MPU-6050 Register Map and Descriptions" page 41
 	I2Cdev::writeBit(devAddr,0x6B, 7, (val = 1)); //PWR_MGMT_1: reset with 100ms delay
-	sleep_ms(100);
+	sleep_ms(300);
 	I2Cdev::writeBits(devAddr,0x6A, 2, 3, (val = 0b111)); // full SIGNAL_PATH_RESET: with another 100ms delay
-	sleep_ms(100);         
+	sleep_ms(300);         
 	I2Cdev::writeBytes(devAddr,0x6B, 1, &(val = 0x01)); // 1000 0001 PWR_MGMT_1:Clock Source Select PLL_X_gyro
 	I2Cdev::writeBytes(devAddr,0x38, 1, &(val = 0x00)); // 0000 0000 INT_ENABLE: no Interrupt
 	I2Cdev::writeBytes(devAddr,0x23, 1, &(val = 0x00)); // 0000 0000 MPU FIFO_EN: (all off) Using DMP's FIFO instead

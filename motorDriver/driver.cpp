@@ -33,32 +33,32 @@ void driver::forward()
     gpio_put(pinB1, 1);
     gpio_put(pinA2, 0);
     gpio_put(pinB2, 0);
-    pwm_set_gpio_level(EnA, (count_top + 1) * 0.50f);
-    pwm_set_gpio_level(EnB, (count_top + 1) * 0.49f);
+    pwm_set_gpio_level(EnA, duty_cycles[3]);
+    pwm_set_gpio_level(EnB, duty_cycles[3]);
 }
 void driver::stop()
 {
 
-    pwm_set_gpio_level(EnA, (count_top + 1) * duty_cycles[0]);
-    pwm_set_gpio_level(EnB, (count_top + 1) * duty_cycles[0]);
+    pwm_set_gpio_level(EnA, duty_cycles[0]);
+    pwm_set_gpio_level(EnB, duty_cycles[0]);
 }
-void driver::turnLeft()
+void driver::turnRight()
 {
     gpio_put(pinA1, 1);
     gpio_put(pinB1, 0);
     gpio_put(pinA2, 0);
     gpio_put(pinB2, 1);
-    pwm_set_gpio_level(EnA, (count_top + 1) * duty_cycles[5]);
-    pwm_set_gpio_level(EnB, (count_top + 1) * duty_cycles[5]);
+    pwm_set_gpio_level(EnA, duty_cycles[2] * 0.95);
+    pwm_set_gpio_level(EnB, duty_cycles[2] * 0.95);
 }
-void driver::turnRight()
+void driver::turnLeft()
 {
     gpio_put(pinA1, 0);
     gpio_put(pinB1, 1);
     gpio_put(pinA2, 1);
     gpio_put(pinB2, 0);
-    pwm_set_gpio_level(EnA, (count_top + 1) * duty_cycles[5]);
-    pwm_set_gpio_level(EnB, (count_top + 1) * duty_cycles[5]);
+    pwm_set_gpio_level(EnA, duty_cycles[2] * 0.95);
+    pwm_set_gpio_level(EnB, duty_cycles[2] * 0.95);
 }
 void driver::backward()
 {
@@ -66,6 +66,6 @@ void driver::backward()
     gpio_put(pinB1, 0);
     gpio_put(pinA2, 1);
     gpio_put(pinB2, 1);
-    pwm_set_gpio_level(EnA, (count_top + 1) * 0.50f);
-    pwm_set_gpio_level(EnB, (count_top + 1) * 0.49f);
+    pwm_set_gpio_level(EnA, duty_cycles[3]);
+    pwm_set_gpio_level(EnB, duty_cycles[3]);
 }

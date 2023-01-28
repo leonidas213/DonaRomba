@@ -1,30 +1,4 @@
-Skip to content
-Search or jump to…
-Pulls
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@leonidas213 
-dangarbri
-/
-pico-distance-sensor
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-pico-distance-sensor/src/sensor.pio
-@dangarbri
-dangarbri Got a working sensor using c++
-Latest commit d22b059 on Aug 28
- History
- 1 contributor
-126 lines (115 sloc)  5.76 KB
+
 
 ; MIT License
 ; 
@@ -152,18 +126,3 @@ irq 0 rel              side 0
         pio_sm_set_enabled(pio, sm, true);
     }
 %}
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-pico-distance-sensor/sensor.pio at main · dangarbri/pico-distance-sensor

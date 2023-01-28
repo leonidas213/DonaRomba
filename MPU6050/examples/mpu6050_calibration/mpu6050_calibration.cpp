@@ -226,12 +226,12 @@ int main()
     stdio_init_all();
 
     // I2C Initialisation. Using it at 400Khz.
-    i2c_init(i2c_default, 400*1000);
+    i2c_init(i2c1, 400*1000);
     
-    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
-    gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
-    gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
+    gpio_set_function(2, GPIO_FUNC_I2C);
+    gpio_set_function(3, GPIO_FUNC_I2C);
+    gpio_pull_up(2);
+    gpio_pull_up(3);
 
     // setup blink led
     initLED();

@@ -18,17 +18,22 @@ add_executable(Roomba main.cpp)
 # name anything you want
 
 # must match with executable name and source file names
-pico_enable_stdio_uart(Roomba 0)
+pico_enable_stdio_uart(Roomba 1)
 pico_enable_stdio_usb(Roomba 1)
-add_subdirectory(uartPio)
 add_subdirectory(motorDriver)
-#add_subdirectory(MPU6050)
+add_subdirectory(MPU6050)
+add_subdirectory(hmc5883L)
+#add_subdirectory(hc-04)
 # must match with executable name
 target_link_libraries(Roomba pico_stdlib 
 hardware_pwm
 hardware_i2c
 motorDriver
+mpu6050
 pico_bootsel_via_double_reset
+pico_multicore
+pico_time
+hmc5883l
 )
 
 # must match with executable name
