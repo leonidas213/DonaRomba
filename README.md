@@ -2,7 +2,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Leonidas213/DonaRomba">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="bit.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">roomba with Slam</h3>
